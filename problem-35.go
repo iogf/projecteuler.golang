@@ -18,7 +18,7 @@ import (
 var primeSeq []int
 
 func InitializeSeq(max int) []int {
-	primeSeq = PrimeSeq(1000000)
+	primeSeq = PrimeSeq(max)
 	return primeSeq
 }
 
@@ -88,7 +88,7 @@ func IsCircularPrime(n int) bool {
 
 func main() {
 	counter := 0
-	seq := InitializeSeq(300)
+	seq := InitializeSeq(1000000)
 
 	for _, elem := range seq {
 		if IsCircularPrime(elem) {
