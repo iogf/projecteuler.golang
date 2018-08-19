@@ -24,7 +24,6 @@ import (
 	"math"
 )
 
-
 func feedSeq(seq []int, num int) []int {
 	sqrt := math.Sqrt(float64(num))
 	lim := int(sqrt + 1)
@@ -48,9 +47,9 @@ func PrimeSeq(seq []int, max int) []int {
 		seq = append(seq, 2, 3)
 	}
 
-	i := seq[len(seq) - 1] + 2
+	i := seq[len(seq)-1] + 2
 
-	for ;i < max; i += 2 {
+	for ; i < max; i += 2 {
 		seq = feedSeq(seq, i)
 	}
 
@@ -70,8 +69,8 @@ func consumeFactor(n int, p int) (int, int) {
 		panic("Zero can't be accepted")
 	}
 
-	for ;;{
-		if n % p == 0 {
+	for {
+		if n%p == 0 {
 			n /= p
 			exp += 1
 		} else {
@@ -102,7 +101,6 @@ func cDivs(seq []int, num int) ([]int, int) {
 	return seq, count
 }
 
-
 func main() {
 	seq := make([]int, 0, 100)
 	seq = PrimeSeq(seq, 100)
@@ -111,8 +109,8 @@ func main() {
 	// fmt.Println(consumeFactor(0, 2))
 	// fmt.Println(cDivs(seq, 28))
 
-	for i := 1; ; i ++ {
-		tnum := i * (i + 1)/2
+	for i := 1; ; i++ {
+		tnum := i * (i + 1) / 2
 		tmp, c := cDivs(seq, tnum)
 		seq = tmp
 
@@ -123,4 +121,3 @@ func main() {
 	}
 
 }
-

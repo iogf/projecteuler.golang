@@ -1,5 +1,5 @@
 /*
-A palindromic number reads the same both ways. The largest palindrome made 
+A palindromic number reads the same both ways. The largest palindrome made
 from the product of two 2-digit numbers is 9009 = 91 × 99.
 
 Find the largest palindrome made from the product of two 3-digit numbers.
@@ -18,7 +18,7 @@ func IsPalim(num int) bool {
 	nlen := len(nstr)
 
 	for i := 0; i <= nlen/2; i++ {
-		if nstr[nlen - i - 1] != nstr[i] {
+		if nstr[nlen-i-1] != nstr[i] {
 			return false
 		}
 	}

@@ -16,7 +16,7 @@ import (
 )
 
 func genSqrts(max int) map[float64]int {
-// 	lim := math.Sqrt(1000)
+	// 	lim := math.Sqrt(1000)
 	sqrts := make(map[float64]int, max)
 
 	for i := 1; i < max; i++ {
@@ -32,7 +32,7 @@ func IsPerfectSqrt(n float64) (float64, bool) {
 	b := int(a)
 
 	c := math.Pow(float64(b), 2)
-	
+
 	if c == n {
 		return a, true
 	}
@@ -40,20 +40,20 @@ func IsPerfectSqrt(n float64) (float64, bool) {
 	return a, false
 }
 
-func findProd(f int, sqrts map[float64]int) int{
+func findProd(f int, sqrts map[float64]int) int {
 	for i, j := range sqrts {
 		for m, n := range sqrts {
 			z := m + i
 			v, err := IsPerfectSqrt(z)
 
-			if  err && j + n + int(v) == f{
+			if err && j+n+int(v) == f {
 				return j * n * int(v)
 			}
 		}
 	}
 
 	return 0
-	
+
 }
 
 func PrintSqrts(sqrts map[float64]int) {
@@ -64,13 +64,10 @@ func PrintSqrts(sqrts map[float64]int) {
 
 func main() {
 	sqrts := genSqrts(1000)
-// 	PrintSqrts(sqrts)
+	// 	PrintSqrts(sqrts)
 
-// 	fmt.Println(IsPerfectSqrt(17))
+	// 	fmt.Println(IsPerfectSqrt(17))
 	prod := findProd(1000, sqrts)
 
 	fmt.Println("Result:", prod)
 }
-
-
-

@@ -31,11 +31,10 @@ What is the greatest product of four adjacent numbers in the same direction (up,
 
 package main
 
-
 import (
 	"fmt"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 // func printStrGrid(grid [][]string) {
@@ -56,12 +55,11 @@ func printGrid(grid [][]int) {
 	}
 }
 
-
 func lineToInts(line []string) []int {
-	nums := make([]int, 0) 
+	nums := make([]int, 0)
 
 	for _, elem := range line {
-		rsl, _:= strconv.Atoi(elem)
+		rsl, _ := strconv.Atoi(elem)
 		nums = append(nums, rsl)
 	}
 
@@ -91,10 +89,10 @@ func Max(arr []int) int {
 	return max
 }
 
-func calcGreatestH(l int, grid [][]int) int{
+func calcGreatestH(l int, grid [][]int) int {
 	prod := 1
 
-	for i := 0; i < len(grid) - l; i++ {
+	for i := 0; i < len(grid)-l; i++ {
 		for j := 0; j < len(grid[i]); j++ {
 			prod = Max([]int{prod, calcH(i, j, l, grid)})
 		}
@@ -103,12 +101,12 @@ func calcGreatestH(l int, grid [][]int) int{
 	return prod
 }
 
-func calcGreatestV(l int, grid [][]int) int{
+func calcGreatestV(l int, grid [][]int) int {
 	prod := 1
 
-	for i := 0; i < len(grid) - l; i++ {
-		for j := 0; j < len(grid[i]) - l; j++ {
- 			prod = Max([]int{prod, calcD(i, j, l, grid)})
+	for i := 0; i < len(grid)-l; i++ {
+		for j := 0; j < len(grid[i])-l; j++ {
+			prod = Max([]int{prod, calcD(i, j, l, grid)})
 
 		}
 	}
@@ -116,35 +114,35 @@ func calcGreatestV(l int, grid [][]int) int{
 	return prod
 }
 
-func calcGreatestD(l int, grid [][]int) int{
+func calcGreatestD(l int, grid [][]int) int {
 	prod := 1
 
- 	for i := l - 1; i < len(grid) - l; i ++ {
- 		for j := 0; j < len(grid[i]) - l; j++ {
- 			prod = Max([]int{prod, calcU(i, j, l, grid)})
- 		}
- 	}
+	for i := l - 1; i < len(grid)-l; i++ {
+		for j := 0; j < len(grid[i])-l; j++ {
+			prod = Max([]int{prod, calcU(i, j, l, grid)})
+		}
+	}
 
 	return prod
 }
 
-func calcGreatestU(l int, grid [][]int) int{
+func calcGreatestU(l int, grid [][]int) int {
 	prod := 1
 
- 	for i := l - 1; i < len(grid) - l; i ++ {
- 		for j := 0; j < len(grid[i]) - l; j++ {
- 			prod = Max([]int{prod, calcU(i, j, l, grid)})
- 		}
- 	}
+	for i := l - 1; i < len(grid)-l; i++ {
+		for j := 0; j < len(grid[i])-l; j++ {
+			prod = Max([]int{prod, calcU(i, j, l, grid)})
+		}
+	}
 
 	return prod
 }
 
-func calcH(x, y, l int, grid [][]int) int{
+func calcH(x, y, l int, grid [][]int) int {
 	prod := 1
 
 	for i := 0; i < l; i++ {
-		prod *= grid[x + i][y] 
+		prod *= grid[x+i][y]
 	}
 
 	return prod
@@ -154,27 +152,27 @@ func calcV(x, y, l int, grid [][]int) int {
 	prod := 1
 
 	for i := 0; i < l; i++ {
-		prod *= grid[x][y + i] 
+		prod *= grid[x][y+i]
 	}
 
 	return prod
 }
 
-func calcD(x, y, l int, grid [][]int) int{
+func calcD(x, y, l int, grid [][]int) int {
 	prod := 1
 
 	for i := 0; i < l; i++ {
-		prod *= grid[x + i][y + i] 
+		prod *= grid[x+i][y+i]
 	}
 
 	return prod
 }
 
-func calcU(x, y, l int, grid [][]int) int{
+func calcU(x, y, l int, grid [][]int) int {
 	prod := 1
 
 	for i := l - 1; i >= 0; i-- {
-		prod *= grid[x + l - i][y + i] 
+		prod *= grid[x+l-i][y+i]
 	}
 
 	return prod
@@ -214,4 +212,3 @@ func main() {
 
 	fmt.Println("Result:", compute(4, grid))
 }
-

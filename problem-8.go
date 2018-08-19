@@ -31,21 +31,21 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"strconv"
+	"strings"
 )
 
-func find(index , size int, num string) int {
+func find(index, size int, num string) int {
 	prod := 1
 	for i := 0; i < size; i++ {
-		val, _ := strconv.Atoi(string(num[index + i]))
+		val, _ := strconv.Atoi(string(num[index+i]))
 		prod = prod * val
 	}
 
 	return prod
 }
 
-func Max(arr []int) int{
+func Max(arr []int) int {
 	max := 0
 
 	for _, i := range arr {
@@ -79,15 +79,14 @@ func main() {
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450`
 
-
 	num = strings.Replace(num, "\n", "", -1)
 	num = strings.Replace(num, " ", "", -1)
 	max := 0
 	size := 13
 
-	for i := 0; i <= len(num) - size; i ++ {
+	for i := 0; i <= len(num)-size; i++ {
 		r := find(i, size, num)
-	
+
 		if r > max {
 			max = r
 		}
@@ -95,8 +94,3 @@ func main() {
 
 	fmt.Println("Result:", max)
 }
-
-
-
-
-

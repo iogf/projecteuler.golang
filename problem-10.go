@@ -51,5 +51,3 @@ func main() {
 
 	fmt.Println("Result:", sum)
 }
-
-

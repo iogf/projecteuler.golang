@@ -14,5 +14,5 @@ func main() {
 		sum = sum + i
 	}
 
-	fmt.Println("Result:",  int(math.Pow(float64(sum), 2)) - sqsum )
+	fmt.Println("Result:", int(math.Pow(float64(sum), 2))-sqsum)
 }

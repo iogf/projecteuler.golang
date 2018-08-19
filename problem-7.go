@@ -4,15 +4,14 @@ import (
 	"fmt"
 )
 
-func isPrime(n int) bool{
+func isPrime(n int) bool {
 	for i := 2; i < n/2; i++ {
-		if n % i == 0 {
+		if n%i == 0 {
 			return false
 		}
 	}
 	return true
 }
-
 
 func find(max int) int {
 	count := 1
@@ -26,12 +25,10 @@ func find(max int) int {
 		}
 
 	}
-	
+
 	return prime
 }
-
 
 func main() {
 	fmt.Println("Result:", find(10000))
 }
-

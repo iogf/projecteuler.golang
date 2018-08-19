@@ -40,9 +40,9 @@ func PrimeSeq(max int) []int {
 	return seq
 }
 
-func exhaust(base int, num int) int{
+func exhaust(base int, num int) int {
 	exp := 0
-	for ; num % base == 0; exp++ {
+	for ; num%base == 0; exp++ {
 		num = num / base
 	}
 	return exp
@@ -64,11 +64,9 @@ func main() {
 
 	for base, exp := range hash {
 		val := math.Pow(float64(base), float64(exp))
-		lcm *=  int(val)
+		lcm *= int(val)
 
 	}
 
 	fmt.Println("Result:", lcm)
 }
-
-

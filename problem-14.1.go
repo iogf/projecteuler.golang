@@ -15,57 +15,55 @@ NOTE: Once the chain starts the terms are allowed to go above one million
 
 package main
 
-import ( 
-    "fmt" 
+import (
+	"fmt"
 )
 
-
 func CtzChain(ctzNums map[int]int, num int) int {
-    len, ok := ctzNums[num]
+	len, ok := ctzNums[num]
 
-    if !ok {
-        len = calcChain(ctzNums, num)
-        ctzNums[num] = len
-    }
+	if !ok {
+		len = calcChain(ctzNums, num)
+		ctzNums[num] = len
+	}
 
-    return len
+	return len
 }
 
 func calcChain(ctzNums map[int]int, num int) int {
-    len := 1
+	len := 1
 
-    for ;num>1; {
-        if num%2 == 0 {
-            num = num / 2
-        } else {
-            num = 3 * num + 1
-        }
+	for num > 1 {
+		if num%2 == 0 {
+			num = num / 2
+		} else {
+			num = 3*num + 1
+		}
 
-        value, ok := ctzNums[num]
+		value, ok := ctzNums[num]
 
-        if ok {
-            return len + value
-        } else {
-            len++
-        }
-    }
+		if ok {
+			return len + value
+		} else {
+			len++
+		}
+	}
 
-    return len
+	return len
 }
 
 func main() {
-    ctzNums := make(map[int]int)
-    num, max := 1, 1
+	ctzNums := make(map[int]int)
+	num, max := 1, 1
 
-    for i:=1; i<1000000; i++ {
-        len := CtzChain(ctzNums, i)
+	for i := 1; i < 1000000; i++ {
+		len := CtzChain(ctzNums, i)
 
-        if len > max {
-            num, max = i, len
-        }
-    }
+		if len > max {
+			num, max = i, len
+		}
+	}
 
-    fmt.Println("Num:", num);
-    fmt.Println("Chain Length:", max);
+	fmt.Println("Num:", num)
+	fmt.Println("Chain Length:", max)
 }
-
