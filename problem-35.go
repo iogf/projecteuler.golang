@@ -26,7 +26,7 @@ func Rotations(n int) []int {
 	nstr := strconv.Itoa(n)
 	seq := make([]int, 0)
 
-	for i:=0; i < len(nstr); i++ {
+	for i := 0; i < len(nstr); i++ {
 		nstr = strings.Join([]string{nstr[1:], nstr[:1]}, "")
 		m, _ := strconv.Atoi(nstr)
 		seq = append(seq, m)
@@ -78,7 +78,7 @@ func IsCircularPrime(n int) bool {
 	rots := Rotations(n)
 
 	for _, elem := range rots {
-		if !IsPrime(elem)  {
+		if !IsPrime(elem) {
 			return false
 		}
 	}
@@ -97,4 +97,3 @@ func main() {
 	}
 	fmt.Println("Result:", counter)
 }
-

@@ -63,10 +63,9 @@ func IsStrDiv(nstr string) bool {
 	np5, _ := strconv.Atoi(string(p5))
 	np6, _ := strconv.Atoi(string(p6))
 
-
-	cond := (np0 % 2 == 0) && (np1 % 3 == 0) && (np2 % 5 == 0) && 
-	(np3 % 7 == 0) && (np4 % 11 == 0) && (np5 % 13 == 0) &&
-	(np6 % 17 == 0)
+	cond := (np0%2 == 0) && (np1%3 == 0) && (np2%5 == 0) &&
+		(np3%7 == 0) && (np4%11 == 0) && (np5%13 == 0) &&
+		(np6%17 == 0)
 
 	if cond {
 		return true
